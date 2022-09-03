@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block estilera %}
+  <link rel="stylesheet" type="text/css" href="{% static "home.css" %}">
+{% endblock %}
+
+{% block titulo %}
+    <title>Tccs</title>
+{% endblock %}
+
+
+{% block conteudo %}
+
+<div class="card-deck d-flex">
+  
+ 
+    <div class="row">
+
+        {% for tcc in object_list %}
+            <div class="col-4">
+                <a href="{% url 'detalhar_tcc' tcc.id %}" class="card_link">
+                    <div class="card border-light">
+                        <div class="card-header">{{ tcc.titulo}}</div>
+                            <div class="card-body">
+                                <p class="card-text content">{{ tcc.resumo}}</p>
+                                <p class="card-text mb-3"><small class="text-muted">L{{ tcc.palavrasChave }}</small></p>
+                                <button type="button" class="btn btn-light" style="color:black"><a class="bi bi-pen-fill" href="{% url 'editar_tcc' tcc.id %}"> Editar</a></button>
+                                <button type="button" class="btn  btn-dark"><a class="bi bi-trash" href="{% url 'deletar_tcc' tcc.id %}"> Excluir</a></button>
+                            </div>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <h2>Não há tccs registrados</h2>
+        {% endfor %}
+    </div>
+     <button type="button" class="btn btn-dark btn-criar mt-1 mr-5"><a href="{% url 'criar_tcc' %}"> Criar</a></button>
+      
+</div>
+
+{% endblock %}

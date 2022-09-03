@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block estilera %}
+  
+  <link rel="stylesheet" type="text/css" href="{% static "card.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "tcc.css" %}">
+{% endblock %}
+
+{% block titulo %}
+    <title>{{ tcc.titulo}}</title>
+{% endblock %}
+
+
+{% block conteudo %}
+
+<div class="card-deck d-flex">
+  <div class="row">
+        <div class="col" style="width:100%;">
+            <div class="card border-light"  style=" height: fit-content">
+                <div class="card-header">{{ tcc.titulo}}</div>
+                <div class="card-body">
+                    <p class="card-text content">{{ tcc.resumo}}</p>
+                    <p class="card-text mb-3">Ano: {{ tcc.anoDocumento }}</p>
+                    <p class="card-text mb-3">Autor: {{ tcc.autor }}</p>
+                    <p class="card-text mb-3">Orientador: {{ tcc.orientador }}</p>
+                    <p class="card-text mb-3">Curso: {{ tcc.curso }}</p>
+                    <p class="card-text mb-3">Palavras chave: <small class="text-muted">L{{ tcc.palavrasChave }}</small></p>
+                    
+                    <button type="button" class="btn btn-dark"><a class="bi bi-cloud-download" href="{{ tcc.arquivo.url }}"> Download</a></button>
+                </div>
+            </div>
+        </div>
+    
+
+</div>
+
+<button type="button" class="btn btn-dark btn-criar mt-1 mr-5"><a href="{% url 'criar_orientador' %}"> Criar</a></button>
+</div>
+
+{% endblock %}

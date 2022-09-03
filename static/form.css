@@ -1,0 +1,29 @@
+form {
+    
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
+    column-gap: 1.5rem;
+
+}
+
+#div_id_resumo{
+    grid-area: 4/4/1/1;
+    height: 10rem !important;
+    /* height: 2rem; */
+}
+
+#div_id_orientador{
+    height: 4rem !important;
+}
+
+textarea[name="resumo"]{
+
+    min-height: 7rem !important;
+    height: 7rem !important;
+}
+
+.btn-success{
+    height: 2.5rem;
+    margin-top: 2rem !important;
+}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block estilera %}
+  <link rel="stylesheet" type="text/css" href="{% static "card.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "usuarios.css" %}">
+{% endblock %}
+
+{% block titulo %}
+    <title>Usuarios</title>
+{% endblock %}
+
+
+{% block conteudo %}
+
+<div class="card-deck d-flex">
+    <div class="row">
+
+        {% for user in object_list%}
+            <div class="col">
+                <div class="card border-light" style="width:18rem" >
+                    <div class="card-header">{{ user.username}}</div>
+                    <div class="card-body">
+                        <p class="card-text content">{{user.first_name}}-{{user.last_name}}</p>
+                        {% if user.email %}
+                        <p class="card-text mb-3"><small class="text-muted">{{user.email}}</small></p>
+                        {% else %}
+                            <p class="card-text mb-3"><small class="text-muted">Sem email</small></p>
+                       
+                        {% endif %}
+                       
+                        <button type="button" class="btn btn-dark"><a class="bi bi-trash" href="{% url 'deletar_usuario' user.id %}"> Excluir</a></button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="button" class="btn btn-dark btn-criar mt-1"><a href="{% url 'criar_usuario' %}"> Criar</a></button>
+    <button type="button" class="btn btn-light btn-editar mt-1 "><a class="bi bi-pen-fill" href="{% url 'editar_usuario' %}"> Editar</a></button>
+</div>
+
+{% endblock %}

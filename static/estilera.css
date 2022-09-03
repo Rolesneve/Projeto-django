@@ -1,0 +1,40 @@
+.container-fluid,
+.row:not([class="row-btn-criar"]),
+.col-sidebar, .col-base,
+#sidebar-wrapper {
+    height: 100vh;
+}
+
+.offcanvas {
+    width: 100%;
+}
+
+.border-end {
+    background-color: #563C7D;
+}
+
+.list-group-item, .list-group-item:hover, .list-group-item:active,  .list-group-item:focus{
+    background-color: #563C7D;
+    color: #BCACD7;
+}
+
+.list-group-item:hover {
+    color: #fff;
+}
+
+
+.btn-criar, .btn-editar{
+    width: auto;
+    height: 2.5rem;
+    position: absolute !important;
+}
+
+.btn-editar{
+    margin-left: 4.5rem;
+}
+
+/* CSS */
+
+h2{
+    margin-top:50px!important;
+}
